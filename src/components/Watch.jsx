@@ -16,8 +16,10 @@ class Watch extends Component {
     const day = new Date();
     const hours = (day.getUTCHours() + +zone) * 30;
     const minutes = day.getUTCMinutes() * this.deg;
+    console.log(minutes);
     const seconds = day.getUTCSeconds() * this.deg;
-    return { hours, minutes, seconds };
+    const minuts = minutes / 12;
+    return { hours, minutes, minuts, seconds };
   }
 
   componentDidMount() {
@@ -32,7 +34,7 @@ class Watch extends Component {
   }
 
   render() {
-    const { hours, minutes, seconds } = this.state;
+    const { hours, minutes, minuts, seconds } = this.state;
     return (
       <div className="clock">
         <button className="clock__btn" onClick={() => this.onDelete(this.id)}>
@@ -43,7 +45,7 @@ class Watch extends Component {
           <div className="clock__hour">
             <div
               className="hours"
-              style={{ transform: `rotateZ(${hours + minutes / 12}deg)` }}
+              style={{ transform: `rotateZ(${hours + minuts}deg)` }}
             ></div>
           </div>
           <div className="clock__minute">

@@ -20,8 +20,7 @@ code {
 }
 
 .clock_list {
-  display: grid;
-  grid-template-columns: repeat (4, 1fr);
+  display: flex;
 }
 
 .form {
@@ -58,13 +57,20 @@ code {
   font-size: 2rem;
   font-weight: 700;
   word-wrap: break-word;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 .clock {
-  width: 300px;
-  height: 347px;
-  margin-top: 2em;
+  width: 325px;
+  height: 380px;
   position: relative;
+  margin-top: 2em;
+  margin-right: 15px;
+  margin-left: 15px;
+  padding: 10px;
+  border-radius: 30px;
+  border: 1px solid #000;
 }
 
 .clock__btn {
@@ -75,7 +81,7 @@ code {
   font-size: 1.5rem;
   background-color: inherit;
   right: 0;
-  top: 40px;
+  top: 0;
 }
 
 .clock__dial {
@@ -106,7 +112,7 @@ code {
 .clock__hour {
   position: absolute;
 }
-.clock__hour.hours {
+.clock__hour .hours {
   width: 120px;
   height: 120px;
   display: flex;
@@ -127,7 +133,8 @@ code {
 .clock__minute {
   position: absolute;
 }
-.clock__minut.minutes {
+
+.clock__minute .minutes {
   width: 160px;
   height: 160px;
   display: flex;
@@ -149,7 +156,7 @@ code {
   position: absolute;
 }
 
-.clock__second.seconds {
+.clock__second .seconds {
   width: 260px;
   height: 260px;
   display: flex;
@@ -157,6 +164,7 @@ code {
   position: relative;
   border-radius: 50%;
 }
+
 .seconds::before {
   content: "";
   position: absolute;
@@ -165,9 +173,4 @@ code {
   border-radius: 6px 6px 0 0;
   z-index: 12;
   background-color: red;
-}
-
-#myChart {
-  max-width: 500px;
-  max-height: 500px;
 }
